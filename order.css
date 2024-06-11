@@ -1,0 +1,77 @@
+/* order.css */
+
+.order_payment {
+    width: 400px;
+    margin: 0 auto;
+}
+
+.order_payment h1 {
+    text-align: center;
+    font-size: 24px;
+}
+
+.order_payment form {
+    margin-top: 20px;
+}
+
+.order_payment label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.order_payment input[type="text"],
+.order_payment select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+.order_payment .payment-container {
+    margin-top: 20px;
+}
+
+.order_payment .payment-container h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.order_payment .payment-option {
+    margin-bottom: 10px;
+}
+
+.order_payment .payment-option input[type="radio"] {
+    margin-right: 10px;
+}
+
+.order_payment .payment-method {
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    display: none;
+}
+
+.order_payment .payment-method label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.order_payment .payment-method input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+.order_payment input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.order_payment input[type="submit"]:hover {
+    background-color: #45a049;
+}

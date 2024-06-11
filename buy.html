@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Testimonial</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free Website Template" name="keywords">
+    <meta content="Free Website Template" name="description">
+
+    <!-- Favicon -->
+    <link href="img/logo.png" rel="icon">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"> 
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/style.min.css" rel="stylesheet">
+</head>
+
+    <style>
+/** order payment css **/
+
+.order_payment body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+.order_payment h1 {
+    text-align: center;
+    color: #DC5F00;
+}
+.order_payment form {
+    max-width: 500px;
+    margin: 0 auto;
+}
+.order_payment  label {
+    display: block;
+    margin-top: 10px; 
+}
+.order_payment  input[type="text"], select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+.order_payment  input[type="submit"] {
+    display: block;
+    margin: 0 auto;
+    margin-top: 30px;
+    background-color: #DC5F00;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.order_payment input[type="submit"]:hover {
+    background-color: #FF9A00;
+}
+
+.order_payment .payment-container {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.order_payment .payment-option {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.order_payment .payment-option input[type="radio"] {
+    margin-right: 10px;
+}
+.order_payment  .payment-option label {
+    font-weight: bold;
+}
+.order_payment  .payment-method {
+    display: none;
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.order_payment  .payment-method label {
+    display: block;
+    margin-top: 5px;
+}
+.order_payment .payment-method input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+.order_payment .payment-method .card-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+}
+    </style>
+
+    <script>
+        // JavaScript to show/hide the payment method fields based on selection
+        function showPaymentMethod() {
+            var paymentOption = document.querySelector('input[name="payment"]:checked').value;
+            var paymentMethod = document.querySelector('#payment-method');
+
+            if (paymentOption === "credit") {
+                paymentMethod.innerHTML = `
+              <label for="card-number">Card Number:</label>
+              <input type="text" id="card-number" name="card-number" required>
+
+              <label for="expiry-date">Expiry Date:</label>
+              <input type="text" id="expiry-date" name="expiry-date" required>
+
+              <div class="card-details">
+                <div>
+                  <label for="cardholder-name">Cardholder Name:</label>
+                  <input type="text" id="cardholder-name" name="cardholder-name" required>
+                </div>
+                <div>
+                  <label for="cvv">CVV:</label>
+                  <input type="text" id="cvv" name="cvv" required>
+                </div>
+              </div>
+            `;
+            } else if (paymentOption === "debit") {
+                paymentMethod.innerHTML = `
+              <label for="account-number">Account Number:</label>
+              <input type="text" id="account-number" name="account-number" required>
+
+              <label for="routing-number">Routing Number:</label>
+              <input type="text" id="routing-number" name="routing-number" required>
+            `;
+            } else if (paymentOption === "paypal") {
+                paymentMethod.innerHTML = `
+              <label for="paypal-email">PayPal Email:</label>
+              <input type="text" id="paypal-email" name="paypal-email" required>
+            `;
+            } else if (paymentOption === "gcash") {
+                paymentMethod.innerHTML = `
+                <label for="gcash-number">GCash Number:</label>
+                <input type="text" id="gcash-number" name="gcash-number" required>
+            `;
+            }
+
+            paymentMethod.style.display = "block";
+        }
+    </script>
+</head>
+
+<body>
+
+
+
+    <!-- Navbar Start -->
+    <div class="container-fluid p-0 nav-bar">
+        <nav class="navbar navbar-expand-lg bg-none navbar-dark py-3">
+            <a href="home.html" class="navbar-brand px-lg-4 m-0">
+                <h1 class="m-0 display-4 text-uppercase text-white">BIG BREW</h1>
+            </a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                <div class="navbar-nav ml-auto p-4">
+                    <a href="home.html" class="nav-item nav-link">Home</a>
+                    <a href="about.html" class="nav-item nav-link">About</a>
+                    <a href="service.html" class="nav-item nav-link">Service</a>
+                    <a href="menu.html" class="nav-item nav-link">Menu</a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle active" data-toggle="dropdown">Pages</a>
+                        <div class="dropdown-menu text-capitalize">
+                            <a href="reservation.html" class="dropdown-item">Reservation</a>
+                            <a href="testimonial.html" class="dropdown-item active">Testimonial</a>
+                        </div>
+                    </div>
+                    <a href="contact.html" class="nav-item nav-link">Contact</a>
+                    <a href="index.html" class="nav-item nav-link">Logout</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <!-- Navbar End -->
+
+
+    <!-- Page Header Start -->
+    <div class="container-fluid page-header mb-5 position-relative overlay-bottom">
+        <div class="d-flex flex-column align-items-center justify-content-center pt-0 pt-lg-5" style="min-height: 400px">
+            <h1 class="display-4 mb-3 mt-0 mt-lg-5 text-white text-uppercase">Buy</h1>
+        </div>
+    </div>
+    <!-- Page Header End -->
+
+
+    <!-- Testimonial Start -->
+
+    <div class="order_payment">
+        <h1>Restaurant Order</h1>
+        <form action="delivery.html" method="post">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email" required>
+
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address" required>
+
+            <label for="phone">Phone:</label>
+            <input type="text" id="phone" name="phone" required>
+
+            <label for="menu">Menu:</label>
+            <select id="menu" name="menu">
+                <option value="burger">Milk Tea</option>
+                <option value="pizza">Frappe</option>
+                <option value="pasta">Hot Brew</option>
+                <option value="salad">Iced Coffee</option>
+                <option value="salad">Fruit Tea</option>
+            </select>
+
+            <label for="quantity">Quantity:</label>
+            <input type="text" id="quantity" name="quantity" required>
+
+            <div class="payment-container">
+                <h2>Payment Method</h2>
+                <div class="payment-option">
+                    <input type="radio" id="credit" name="payment" value="credit" onchange="showPaymentMethod()" required>
+                    <label for="credit">Credit Card</label>
+                </div>
+                <div class="payment-option">
+                    <input type="radio" id="debit" name="payment" value="debit" onchange="showPaymentMethod()" required>
+                    <label for="debit">Debit Card</label>
+                </div>
+                <div class="payment-option">
+                    <input type="radio" id="paypal" name="payment" value="paypal" onchange="showPaymentMethod()" required>
+                    <label for="paypal">PayPal</label>
+                </div>
+                <div class="payment-option">
+                    <input type="radio" id="gcash" name="payment" value="gcash" onchange="showPaymentMethod()" required>
+                    <label for="gcash">GCash</label>
+                </div>
+                <div id="payment-method" class="payment-method"></div>
+            </div>
+
+            <input type="submit" value="Place Order">
+        </form>
+    </div>
+    <!-- Testimonial End -->
+
+
+    <!-- Footer Start -->
+    <div class="container-fluid footer text-white mt-5 pt-5 px-0 position-relative overlay-top">
+        <div class="row mx-0 pt-5 px-sm-3 px-lg-5 mt-4">
+            <div class="col-lg-3 col-md-6 mb-5">
+                <h4 class="text-white text-uppercase mb-4" style="letter-spacing: 3px;">Get In Touch</h4>
+                <p><i class="fa fa-map-marker-alt mr-2"></i>Rey's Boarding House, 3rd gate, Tanza Boac Marinduque, Boac, Philippines, 4900</p>
+                <p><i class="fa fa-phone-alt mr-2"></i>0967 274 4409</p>
+                <p class="m-0"><i class="fa fa-envelope mr-2"></i>bigbrew@gmail.com</p>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-5">
+                <h4 class="text-white text-uppercase mb-4" style="letter-spacing: 3px;">Follow Us</h4>
+                <p>For more updates and stay connected!</p>
+                <div class="d-flex justify-content-start">
+                    <a class="btn btn-lg btn-outline-light btn-lg-square mr-2" href="https://www.facebook.com/BigBrewBoacMarinduque"><i class="fab fa-facebook-f"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-5">
+                <h4 class="text-white text-uppercase mb-4" style="letter-spacing: 3px;">Open Hours</h4>
+                <div>
+                    <h6 class="text-white text-uppercase">Monday - Tuesday</h6>
+                    <p>9:30AM - 9:00PM</p>
+                    <h6 class="text-white text-uppercase">Wednesday - Friday</h6>
+                    <p>9:30AM - 9:00PM</p>
+                    <h6 class="text-white text-uppercase">Saturday</h6>
+                    <p>9:30AM - 7:00PM</p>
+                    <h6 class="text-white text-uppercase">Sunday</h6>
+                    <p>Closed</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-5">
+                <h4 class="text-white text-uppercase mb-4" style="letter-spacing: 3px;">Comapny</h4>
+                <div class="w-100">
+                    <div class="input-group">
+                        <a class="btn btn-link" href="about.html">About</a>
+                        <a class="btn btn-link" href="service.html">Service</a>
+                        <a class="btn btn-link" href="contact.html">Contact</a>
+                        <a class="btn btn-link" href="terms.html">Terms and Conditions</a>
+                        <a class="btn btn-link" href="privacy_statement.html">Privacy Policy</a>
+                        <div class="input-group-append">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid text-center text-white border-top mt-4 py-4 px-sm-3 px-md-5" style="border-color: rgba(256, 256, 256, .1) !important;">
+            <p class="mb-2 text-white"> <a class="font-weight-bold" href="#"></a> All Rights Reserved @ 2024.</a></p>
+            <p class="m-0 text-white">Designed by <a class="font-weight-bold" href="https://htmlcodex.com">Robert Ivan Grajo, Ronnel Mangue, Shiela Rey, Princess Mandalihan, Jhayvie Ann Perilla</a></p>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/tempusdominus/js/moment.min.js"></script>
+    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+    <!-- Contact Javascript File -->
+    <script src="mail/jqBootstrapValidation.min.js"></script>
+    <script src="mail/contact.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>
